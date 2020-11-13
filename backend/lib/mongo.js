@@ -4,8 +4,10 @@ const { config } = require('../config')
 const USER = encodeURIComponent(config.nrdbUser)
 const PASSWORD = encodeURIComponent(config.nrdbPassword)
 const DB_NAME = encodeURIComponent(config.nrdbName)
+const DB_HOST = encodeURIComponent(config.nrdbHost)
+const DB_PORT = encodeURIComponent(config.nrdbPort)
 
-const MONGO_URI = `mongodb://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/?retryWrites=true&w=majority`
+const MONGO_URI = `mongodb://${USER}:${PASSWORD}@${DB_HOST}:${DB_PORT}/?retryWrites=true&w=majority`
 class MongoLib {
   constructor() {
     this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true,  useUnifiedTopology: true })
