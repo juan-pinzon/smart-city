@@ -8,7 +8,7 @@ function MeasurementsApi(app) {
 	const measurementsService = new MeasurementsService()
 
 	router.get('/', async function(req, res, next) {
-		res.status(200).json({message: 'Buenas las tenga'})
+		res.status(200).json({message: 'Buenas a todos'})
 	})
 
 	router.post('/', async function(req, res, next) {
