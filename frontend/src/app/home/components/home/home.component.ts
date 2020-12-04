@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { DeviceService } from 'src/app/services/device/device.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   form: FormGroup;
+  devices$: Observable<any>;
 
   listOfOption = [
     {
@@ -18,11 +21,17 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private deviceService: DeviceService
   ) { }
 
   ngOnInit(): void {
     this.buildForm()
+    this.getDevices()
+  }
+
+  getDevices() {
+    this.devices$ = this.deviceService.getDevices()
   }
 
   buildForm(): void {
