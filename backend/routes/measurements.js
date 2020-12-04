@@ -8,7 +8,36 @@ function MeasurementsApi(app) {
 	const measurementsService = new MeasurementsService()
 
 	router.get('/', async function(req, res, next) {
-		res.status(200).json({message: 'Buenas a todos'})
+		const { query: params } = req
+		try {
+			const measurements = await measurementsService.getMeasurements({ params })
+			res.status(200).json({
+				data: measurements,
+				message: 'Measurements listed'
+			})
+		} catch (error) {
+			next(error)
+		}
+	})
+
+	router.get('/graphic', async function (req, res, next) {
+		const { query: params } = req
+		try {
+			const measurements = await measurementsService.getMeasurementsForGraphic({ params })
+			const data = measurements.map(ele => {
+			const { _id } = ele
+				ele = { ...ele, ..._id }
+				delete ele._id
+				return ele
+			})
+
+			res.status(200).json({
+				data: data,
+				message: 'Measurements graphic'
+			})
+		} catch (error) {
+			next(error)
+		}
 	})
 
 	router.post('/', async function(req, res, next) {

@@ -67,6 +67,13 @@ class MongoLib {
       })
       .then(() => id)
   }
+
+	aggregate(collection, pipelines) {
+		return this.connect()
+			.then(db => {
+				return db.collection(collection).aggregate([...pipelines])
+			})
+	}
 }
 
 module.exports = MongoLib
