@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const { config } = require('./config/index')
 
@@ -10,6 +11,7 @@ const notFoundHandler = require('./utils/middleware/notFoundHandler')
 
 //Body parser
 app.use(express.json())
+app.use(cors())
 
 //Routes
 measurementsApi(app)
