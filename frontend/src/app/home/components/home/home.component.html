@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="container">
+  <div></div>
+  <div>
+    <form [formGroup]="form">
+      <div nz-row>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="devices">Dispositivos</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-select nzSize="default" nzMode="multiple" nzPlaceHolder="Seleccione dispositivos" formControlName="devices">
+                <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="date">Fechas</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-range-picker nzShowTime formControlName="date"></nz-range-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div></div>
+</div>

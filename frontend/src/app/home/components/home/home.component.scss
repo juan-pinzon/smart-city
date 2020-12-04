@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+}
+
+nz-select {
+  width: 100%;
+}
