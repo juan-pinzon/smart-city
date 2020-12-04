@@ -3,6 +3,7 @@ const app = express()
 const { config } = require('./config/index')
 
 const measurementsApi = require('./routes/measurements')
+const devicesApi = require('./routes/devices')
 
 const { logErrors, wrapErrors, errorHandler } = require('./utils/middleware/errorHandler')
 const notFoundHandler = require('./utils/middleware/notFoundHandler')
@@ -12,6 +13,7 @@ app.use(express.json())
 
 //Routes
 measurementsApi(app)
+devicesApi(app)
 
 //Catch 404
 app.use(notFoundHandler)

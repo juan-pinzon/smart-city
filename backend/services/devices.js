@@ -1,10 +1,15 @@
-const MysqlLib = require('../lib/mysql')
+const MongoLib = require('../lib/mongo')
 
 class DevicesService {
 	constructor() {
-		this.mysqlDB = new MysqlLib()
+		this.mongoDB = new MongoLib()
+		this.collection = 'devices'
 	}
 
+	async getDevices({ query }) {
+		const devices = await this.mongoDB.getAll(this.collection, query)
+		return devices || []
+	}
 }
 
 module.exports = DevicesService
