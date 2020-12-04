@@ -7,7 +7,9 @@ const DB_NAME = encodeURIComponent(config.nrdbName)
 const DB_HOST = encodeURIComponent(config.nrdbHost)
 const DB_PORT = encodeURIComponent(config.nrdbPort)
 
-const MONGO_URI = `mongodb://${USER}:${PASSWORD}@${DB_HOST}:${DB_PORT}/?retryWrites=true&w=majority`
+//const MONGO_URI = `mongodb://${USER}:${PASSWORD}@${DB_HOST}:${DB_PORT}/?retryWrites=true&w=majority`
+const MONGO_URI = `mongodb+srv://${USER}:${PASSWORD}@cluster0.hw1ns.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
+
 class MongoLib {
   constructor() {
     this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true,  useUnifiedTopology: true })

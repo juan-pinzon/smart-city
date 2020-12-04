@@ -13,12 +13,12 @@ class MeasurementsService {
 	}
 
 	async getMeasurementsForGraphic({ params }) {
-		const { dateStart, dateEnd, devices } = params
+		const { startDate, endDate, devices } = params
 		const match = {}
-		if ( dateStart && dateEnd ) {
+		if ( startDate && endDate ) {
 			match['datetime'] = {
-				'$gte': new Date(dateStart),
-				'$lte': new Date(dateEnd)
+				'$gte': new Date(startDate),
+				'$lte': new Date(endDate)
 			}
 		}
 		if ( devices ) {
