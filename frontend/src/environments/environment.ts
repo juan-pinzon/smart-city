@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  url_base: 'http://localhost:3001/',
+  url_base: 'http://localhost:3001/api/',
   endPoints: {
     devices: {
-      list: ''
+      list: 'devices'
     },
     measurements: {
-      list: '',
-      graphic: 'graphic'
+      list: 'measurements',
+      graphic: 'measurements/graphic'
     }
   }
 };

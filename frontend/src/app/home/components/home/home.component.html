@@ -1,15 +1,17 @@
 <div class="container">
   <div></div>
   <div>
+    <h1>Dashboard Web Mediciones Calidad de Aire Sector Bochalema</h1>
+    <h4>Filtrar información</h4>
     <form [formGroup]="form">
       <div nz-row>
         <div nz-col nzSpan="12">
           <nz-form-item>
             <nz-form-label [nzSpan]="6" nzFor="devices">Dispositivos</nz-form-label>
-            <nz-form-control [nzSpan]="14">
+            <nz-form-control [nzSpan]="18">
               <nz-select nzSize="default" nzMode="multiple" nzPlaceHolder="Seleccione dispositivos" formControlName="devices">
                 <ng-container *ngIf="(devices$ | async) as devices">
-                  <nz-option *ngFor="let device of devices" [nzLabel]="device.location" [nzValue]="device.id"></nz-option>
+                  <nz-option *ngFor="let device of devices" nzLabel="Dispositivo {{device.id}} ({{device.location}})" [nzValue]="device.id"></nz-option>
                 </ng-container>
               </nz-select>
             </nz-form-control>
@@ -25,6 +27,8 @@
         </div>
       </div>
     </form>
+
   </div>
   <div></div>
+  <canvas width="400" height="150" id="myChart"></canvas>
 </div>
