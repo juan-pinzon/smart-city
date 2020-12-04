@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { map, mergeMap, groupBy, toArray} from 'rxjs/operators'
 
-import { environment as env } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment.prod';
 import { zip, of } from 'rxjs';
 
 @Injectable({
