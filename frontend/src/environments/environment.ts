@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url_base: 'http://localhost:3001/api/',
+  url_base: 'https://localhost:3001/api/',
   endPoints: {
     devices: {
       list: 'devices'
